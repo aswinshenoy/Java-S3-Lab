@@ -23,7 +23,7 @@ public class Grades {
 		this.totalCredits = credit;
 	}
 
-	private double getMarkfromGrade(String grade)
+	private static double getMarkfromGrade(String grade)
 	{
 		switch(grade)
 		{
@@ -48,7 +48,7 @@ public class Grades {
 		}
 	}
 
-	private int getCredit(String subject)
+	private static int getCredit(String subject)
 	{
 		int credit;
 		switch(subject)
