@@ -47,6 +47,40 @@ public class LinkedList {
     }
 
     /*
+     *   Function to insert a node at a given position in the linked list
+     */
+    public void insert(int d, int pos)
+    {
+        // create a new node, and save data to it
+        Node n = new Node();
+        n.data = d;
+
+        // make a copy of head to transverse
+        Node curr = this.head;
+
+        // if position to be inserted is not 1
+        if(pos!=1){
+            // transverse until the element before the position to be inserted
+            for(int i=1; i<pos-1; i++)
+                // move to the next node
+                curr = curr.next;
+            
+            // set the next node of the new node as the node that was originally in that position
+            n.next = curr.next;
+            // set the next node of the node before position to the new node created 
+            curr.next = n;
+        }
+        // if position to be inserted is 1
+        else{
+            // update next node of the new node to the old head
+            n.next = this.head;
+            // set the new node as the head of the linked list
+            this.head = n;
+        }
+
+    }
+
+    /*
      *   Function to search a given element in a linked list,
      *   and return its position if found,
      *   else return -1
