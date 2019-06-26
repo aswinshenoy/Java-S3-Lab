@@ -124,7 +124,8 @@ public class LinkedList {
 			fast = fast.next.next;
 
 			// traversing the slow pointer once
-			slow = slow.next;
+			if(fast!=null)
+				slow = slow.next;
 		}
 		/*
 		 *  The slow pointer corresponds to the middle element 
