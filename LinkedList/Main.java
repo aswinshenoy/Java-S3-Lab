@@ -22,6 +22,9 @@ public class Main {
 
         // Show the linked list
         l.print();
+        
+        // Find mid element of the list
+        System.out.println(l.findMid());
     }
 
 }
