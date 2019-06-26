@@ -16,6 +16,8 @@ public class LinkedList {
             // move to the next node
             i = i.next;
         }
+        // prints blank line
+        System.out.println();
     }
 
     /*
@@ -45,7 +47,7 @@ public class LinkedList {
             i.next = n;
         }
     }
-
+    
     /*
      *   Function to insert a node at a given position in the linked list
      */
@@ -79,6 +81,54 @@ public class LinkedList {
         }
 
     }
+    
+    /*
+     *   Function to insert a node into so as to 
+     *   create a sorted linkedlist
+     *   such that the previous node has lesser value 
+     *   and the next node has higher value.
+     */
+    public void insertSort(int d)
+	{
+		// create a new node, and save data to it
+        Node n = new Node();
+        n.data = d;
+        
+        Node curr = this.head;
+        
+        // if the list is empty, add the element to the first position
+		if(curr == null)
+			// if list is empty, current element is head
+			head = n;
+		// else if element is smaller than the head of the list
+		else if(curr.data>d)
+		{
+			//update the head
+			n.next = this.head;
+			this.head = n;
+		}
+		// else traverse through the list to find the position to insert
+		else{
+			while(curr!=null & curr.next!=null)
+			{
+			  //initializing a pointer and storing the previous node
+			  Node prev = curr;
+			  // moving curr pointer to the next node
+			  curr = curr.next;
+			  // check if curr point data is greater than insert data
+			  if(curr.data>d)
+			  {
+				 // make the curr node as the next of the inserted node
+				 n.next = curr;
+				 // make the inserted node as the next of the previous node
+				 prev.next = n;
+				 // break the loop after inserting
+				 break;
+			  }
+			}
+		}  
+	}
+
 
     /*
      *   Function to search a given element in a linked list,
@@ -105,6 +155,7 @@ public class LinkedList {
         // if not found, return -1
         return -1;
     }
+    
     
    /*
     *   Function to find the middle element
@@ -133,4 +184,5 @@ public class LinkedList {
 		 */
  		return slow.data;
 	}
+
 }
