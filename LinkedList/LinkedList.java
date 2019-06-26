@@ -105,4 +105,31 @@ public class LinkedList {
         // if not found, return -1
         return -1;
     }
+    
+   /*
+    *   Function to find the middle element
+    *   of the linkedList in a single traversal
+    */
+    public int findMid()
+    {
+		//initializing fast pointer which will move 2 nodes at a time
+		Node fast = this.head;
+		//initializing slow pointer which will move 1 node at a time
+		Node slow = fast;
+		
+		// while fast pointer has not reached the end (even & odd case)
+		while(fast!=null && fast.next!=null)
+		{
+			// traversing the fast pointer twice
+			fast = fast.next.next;
+
+			// traversing the slow pointer once
+			slow = slow.next;
+		}
+		/*
+		 *  The slow pointer corresponds to the middle element 
+		 *  when fast pointer points to null
+		 */
+ 		return slow.data;
+	}
 }
