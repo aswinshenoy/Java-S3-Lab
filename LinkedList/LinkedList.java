@@ -1,6 +1,24 @@
 public class LinkedList {
     Node head;
 
+
+    public void merge(LinkedList l1, LinkedList l2)
+    {
+        LinkedList l3 = new LinkedList();
+        while(l1.head!=null)
+        {
+            l3.insertSort(l1.head.data);
+            l1.head = l1.head.next;
+        }
+        while(l2.head!=null)
+        {
+            l3.insertSort(l2.head.data);
+            l2.head = l2.head.next;
+        }
+        this.head = l3.head;
+    }
+
+
     /*
      *   Function to print the linked list
      */
@@ -100,7 +118,6 @@ public class LinkedList {
             this.head = this.head.next;
         }
     }
-
     
     /*
      *   Function to insert a node into so as to 
@@ -117,11 +134,7 @@ public class LinkedList {
         Node curr = this.head;
         
         // if the list is empty, add the element to the first position
-		if(curr == null)
-			// if list is empty, current element is head
-			head = n;
-		// else if element is smaller than the head of the list
-		else if(curr.data>d)
+		if(curr == null || curr.data>d)
 		{
 			//update the head
 			n.next = this.head;
@@ -129,23 +142,13 @@ public class LinkedList {
 		}
 		// else traverse through the list to find the position to insert
 		else{
-			while(curr!=null & curr.next!=null)
+            //loop until the end of the list or until when new element is less than next of current
+			while(curr.next!=null&&curr.next.data<n.data)
 			{
-			  //initializing a pointer and storing the previous node
-			  Node prev = curr;
-			  // moving curr pointer to the next node
 			  curr = curr.next;
-			  // check if curr point data is greater than insert data
-			  if(curr.data>d)
-			  {
-				 // make the curr node as the next of the inserted node
-				 n.next = curr;
-				 // make the inserted node as the next of the previous node
-				 prev.next = n;
-				 // break the loop after inserting
-				 break;
-			  }
-			}
+            }
+			n.next = curr.next;
+            curr.next = n;
 		}  
 	}
 
