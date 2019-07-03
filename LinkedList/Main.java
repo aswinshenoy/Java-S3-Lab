@@ -28,16 +28,28 @@ public class Main {
 		
 		
 		//Initialize a new list
-		LinkedList s = new LinkedList();
+		LinkedList l2 = new LinkedList();
 		
 		// Inserting elements in random order using Insert sort
-		s.insertSort(25);
-		s.insertSort(15);
-		s.insertSort(10);
-		s.insertSort(20);
+		l2.insertSort(25);
+		l2.insertSort(15);
+		l2.insertSort(10);
+		l2.insertSort(20);
 		
 		// Printing list expecting sorted list
-		s.print();
+		l2.print();
+
+
+        //Initialize a new Stack
+        Stack s = new Stack();
+
+        s.push(25);
+        s.print();
+        s.push(50);
+        s.print();
+        s.pop();
+        s.print();
+        System.out.println(s.isEmpty());
 
     }
 
