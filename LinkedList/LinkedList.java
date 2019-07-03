@@ -81,6 +81,26 @@ public class LinkedList {
         }
 
     }
+
+
+    public void delete(int pos)
+    {
+        Node curr = head;
+        if(pos!=1){
+            // transverse until the element before the position to be deleted
+            for(int i=1; i<pos-1; i++)
+                // move to the next node
+                curr = curr.next;
+            
+            curr.next = curr.next.next;
+
+        }
+        // if position to be deleted is 1
+        else{
+            this.head = this.head.next;
+        }
+    }
+
     
     /*
      *   Function to insert a node into so as to 
