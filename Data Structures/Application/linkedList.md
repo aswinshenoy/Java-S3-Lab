@@ -123,9 +123,7 @@ public ListNode rotateRight(ListNode head, int k) {
     
     temp = head;
     for(int i=0; i<pos; i++)
-    {
         temp = temp.next;
-    }
     ListNode newHead = temp.next;
     ListNode newlast = temp;
     newlast.next = null;
@@ -148,5 +146,58 @@ public boolean hasCycle(ListNode head) {
     }
     
     return false; 
+}
+```
+
+#### 5. Intersection of Two LinkedLists
+
+```java
+public ListNode getIntersectionNode(ListNode headA, ListNode headB) {    
+    ListNode pA = headA, pB = headB;
+    
+    while(pA!=pB)
+    {
+        pA = (pA != null) ? pA.next : headB;
+        pB = (pB != null) ? pB.next : headA;
+    }
+    return pA;
+}
+```
+
+#### 6. Partitioning of LinkedList by Value
+
+```java
+public ListNode partition(ListNode head, int x) {
+    
+    ListNode beforeHead = null, afterHead = null;
+    ListNode before = null, after = null;
+    
+    ListNode temp = head;
+    while(temp!=null)
+    {
+        if(temp.val<x)
+            if(beforeHead==null)
+            { beforeHead = temp; before = beforeHead; }
+            else {
+                before.next = temp;
+                before = before.next;
+            }
+        else
+            if(afterHead==null) 
+            { afterHead = temp; after = afterHead; }
+            else
+            {
+                after.next = temp;
+                after = after.next;
+            }
+        temp = temp.next;
+    }
+    if(before!=null&&after!=null)
+    {
+        before.next = afterHead;
+        after.next = null;
+        return beforeHead;
+    }
+    return head;
 }
 ```
