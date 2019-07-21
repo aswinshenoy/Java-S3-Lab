@@ -1,7 +1,7 @@
 public class DoubleLinkedList extends LinkedList {
 	Node tail;
 	
-	  @Override
+	@Override
     public void insert(int d)
     {
         Node n = new Node();
@@ -18,8 +18,8 @@ public class DoubleLinkedList extends LinkedList {
         }
     }
 	
-	  @Override
-    public void insert(int d, int pos)
+    @Override
+    public void insertAt(int d, int pos)
     {
         Node n = new Node();
         n.data = d;

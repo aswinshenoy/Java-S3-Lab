@@ -1,23 +1,20 @@
 public class Stack extends LinkedList{
-	
-	Node top;
+
 
  	void push(int d) {
-          insert(d,1);
+          insertAt(d,1);
     }
 
     int pop() {
 	    if(head!=null)
 	    {
-	     	int key = head.data; 	
+	     	int key = head.data;
+	     	// inherited from LinkedList, deletes element at position (here, at top or 1)
 	     	delete(1);
 	     	return key;		
 	    }
 	    else
-	    {
 	    	return -1;
-	    }
-       	
     }
 
     boolean isEmpty() {

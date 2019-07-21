@@ -1,4 +1,4 @@
-public class Main {
+public class testLinkedList {
 
     public static void main(String[] args) {
 
@@ -17,8 +17,8 @@ public class Main {
         System.out.println(l.search(20));
 
         // inserting at a position
-        l.insert(20,3);
-        l.insert(5,1);
+        l.insertAt(20,3);
+        l.insertAt(5,1);
         
          // Show the linked list
         l.print();
@@ -38,18 +38,6 @@ public class Main {
 		
 		// Printing list expecting sorted list
 		l2.print();
-
-
-        //Initialize a new Stack
-        Stack s = new Stack();
-
-        s.push(25);
-        s.print();
-        s.push(50);
-        s.print();
-        s.pop();
-        s.print();
-        System.out.println(s.isEmpty());
 
     }
 
